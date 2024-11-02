@@ -1,0 +1,22 @@
+Boa dia/Boa Tarde/Boa noite.
+
+Como falado na monitoria o site não esta intuitivo, recomendo que voces ja trabalhem sem o html mas com o php
+e que crie sessão diferentes de login para cadastro.
+
+O bem vindo de volta não e para ser usado dessa maneira, recomendo que quando tiver usando as sessão no php voces tente usar isso,
+mas por agora não ta intuitivo.
+
+o modelo de descer a pagina para ir para cadastro ou login não ficou legal, oriento fazer assim:
+
+Não é apenas um site.
+É o seu futuro.
+
+botão: comece já => ir para outra pagina com uma tela de login, caso o usuario não tenha cadastro tenha uma opção de fazer cadastro
+onde ele ira para tela de cadastro.
+
+botão: saiba mais => pode manter assim o recomendado e criar uma pagina separada para isso mas ok.
+
+para mas reportorio de rede social, da uma olhadinha no site do Facebook, instagram, pinterest e outros.
+
+
+agora sobre o codigo:
