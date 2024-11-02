@@ -20,3 +20,5 @@ para mas reportorio de rede social, da uma olhadinha no site do Facebook, instag
 
 
 agora sobre o codigo:
+
+Para aprender passar informações de uma pagina para outra comece estudar sobre "session_start();"
