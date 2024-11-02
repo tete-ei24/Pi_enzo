@@ -22,3 +22,56 @@ para mas reportorio de rede social, da uma olhadinha no site do Facebook, instag
 agora sobre o codigo:
 
 Para aprender passar informações de uma pagina para outra comece estudar sobre "session_start();"
+
+assim vcs precisam vincular as coisas por exemplo:
+
+NÃO COPIEM E COLEM PQ ESSE codigo E TOTALMENTE diferentes e tem funções que eu excluir pq vcs ainda não estudaram e vão ficar perdido!!!!
+
+quando clicar no botão cadastro ira aparecer um formulario para o usuario preencher tipo:
+
+<input type="text" class="input-field" placeholder="Matrícula" name="matricula" pattern="[0-9]{12}" title="Digite uma matrícula com 12 dígitos" required>
+<input type="text" class="input-field" placeholder="Nome" name="nome" required>
+<input type="text" class="input-field" placeholder="Sobrenome" name="sobrenome" required>
+<input type="password" class="input-field" placeholder="Senha" name="senha" required>
+<input type="password" class="input-field" placeholder="Confirmar Senha" name="confirmar_senha" required>
+
+depois que pedir as informações ai sim tem que ir para o php onde vão usar a logica de programação exemplo:
+
+se senha = confirmar_senha confimar
+caso não retornar um erro falando que as senhas não coecidem
+
+matricula, nome + sobrenome, senha = salvar no banco de dados.
+
+um exemplo de codigo para vcs se orientarem:
+
+<?php
+
+// Extrai os dados da requisição POST em variáveis separadas.
+extract($_POST);
+
+// Verifica se o formulário foi enviado (o botão "cadastrar" foi clicado).
+if (isset($cadastrar)) {
+
+    // Remove espaços em branco no início e no fim do nome e sobrenome e depois concatena para formar o nome completo.
+    $matricula = trim($matricula);
+    $nomeCompleto = trim($nome) . ' ' . trim($sobrenome);
+    $email = trim($matricula) . '@ifba.edu.br';
+    $senha = trim($senha);
+    $confirmar_senha = trim($confirmar_senha);
+
+    // Verifica se a senha coincide com a confirmação de senha.
+    if ($senha === $confirmar_senha) {
+        // Gera o hash da senha usando a função password_hash, para armazená-la de forma segura no banco de dados.
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    
+
+    } else {
+        session_start();
+        $_SESSION['cadastro_erro'] = "As senhas não coincidem.";
+        header("Location: index.php");
+        exit;
+    }
+}
+?>
+
+
