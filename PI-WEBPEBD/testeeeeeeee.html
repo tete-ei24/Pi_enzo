@@ -1,139 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<title>Profile Page</title>
-<style>
-body {
-  background-color: #181818;
-  color: #fff;
-  font-family: sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+    body {
+        background-color: #1C1F26;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.profile {
-  background-color: #181818;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #282C34;
+      width: 2000px;
+    }
 
-.profile-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #333;
-  margin-bottom: 10px;
-  position: relative;
-}
+    .navbar button {
+      border: none;
+      padding: 30px 50px;
+      width: 310px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .navbar .black {
+        background-color: #182527;
+        color: #FFFFFF;
+    }
 
-.profile-image .camera {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .navbar .green {
+        background-color: #00FF9D;
+        color: #1C1F26;
+    }
 
-.profile-image .camera i {
-  color: #333;
-  font-size: 10px;
-}
+    .navbar .black:hover {
+        background-color: #333333;
+    }
 
-.profile-info {
-  margin-bottom: 15px;
-}
+    .navbar .green:hover {
+        background-color: #00ff9dcf;
+    }
 
-.profile-info h2 {
-  margin-top: 0;
-}
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
 
-.profile-info p {
-  margin: 0;
-  font-size: 14px;
-}
+    .profile-pic {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
-.profile-info .edit {
-  display: inline-block;
-  margin-left: 5px;
-  cursor: pointer;
-  font-size: 12px;
-}
+    .profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.profile-info .edit i { color: #333;
-  font-size: 12px;
-}
+    .camera-icon {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background-color: #1C1F26;
+        color: #FFFFFF;
+        padding: 5px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+    }
 
-.profile-stats {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+    h2 {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
 
-.profile-stats .stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 10px;
-}
+    .profile p {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: #AAAAAA;
+    }
 
-.profile-stats .stat .number {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+    .edit-icon {
+        font-size: 1rem;
+        cursor: pointer;
+    }
 
-.profile-stats .stat .label {
-  font-size: 12px;
-  color: #666;
-}
-</style>
+    .profile-info {
+        background-color: #2A2E35;
+        padding: 20px;
+        margin-top: 20px;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        color: #00FF9D;
+    }
+
+    .icon {
+        margin-right: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .navbar button {
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        .profile h2 {
+            font-size: 1.3rem;
+        }
+
+        .profile-info {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar button {
+            padding: 10px;
+            font-size: 0.8rem;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        .profile-info {
+            padding: 15px;
+            width: 95%;
+        }
+
+        .info-item {
+            font-size: 1rem;
+        }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="profile">
-      <div class="profile-image">
-        <img src="https://via.placeholder.com/100" alt="Profile Image">
-        <div class="camera">
-          <i class="fas fa-camera"></i>
-        </div>
-      </div>
-      <div class="profile-info">
-        <h2>John Doe</h2>
-        <p>Software Engineer</p>
-        <span class="edit">
-          <i class="fas fa-edit"></i>
-        </span>
-      </div>
-      <div class="profile-stats">
-        <div class="stat">
-          <span class="number">100</span>
-          <span class="label">Posts</span>
-        </div>
-        <div class="stat">
-          <span class="number">500</span>
-          <span class="label">Followers</span>
-        </div>
-        <div class="stat">
-          <span class="number">200</span>
-          <span class="label">Following</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <header>
+      <nav class="navbar">
+          <button class="black">EDITAR PERFIL</button>
+          <button class="green">HOME</button>
+          <button class="black">NOTIFICAÇÕES</button>
+          <button class="green">SEGUINDO</button>
+          <button class="black">PERGUNTAS</button>
+      </nav>
+  </header>
+  <main>
+      <section class="profile">
+          <div class="profile-pic">
+              <img src="user-placeholder.png" alt="Foto do usuário">
+              <span class="camera-icon">&#128247;</span>
+          </div>
+          <h2>Username</h2>
+          <p>Escreva uma descrição sobre você mesmo <span class="edit-icon">&#9998;</span></p>
+      </section>
+      <section class="profile-info">
+          <div class="info-item">
+              <span class="icon">&#x1F393;</span> ESTUDANTE ...
+          </div>
+          <div class="info-item">
+              <span class="icon">&#x1F4CD;</span> LOCAL ...
+          </div>
+          <div class="info-item">
+              <span class="icon">&#x1F4C5;</span> QUANDO ENTROU ...
+          </div>
+      </section>
+  </main>
 </body>
 </html>
