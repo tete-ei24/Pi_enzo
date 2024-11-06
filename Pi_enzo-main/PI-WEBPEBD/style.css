@@ -121,7 +121,7 @@ body {
 /* Final da seção */
 
 /* CSS Seção Login */
-.Login{
+.info-section-3{
     background-color: #1e1e1e;
     margin: 0;
     display: flex;
@@ -176,22 +176,23 @@ body {
 }
 /*Estilo dos Botão*/
 .btn-3 {
-    background-color: #545454;
-    border-radius: 29px;
+    background-color: #5b5b5b;
+    border-radius: 25px;
+    text-align: center;
     font-size: 23px;
     color: aliceblue;
-    margin: 13px;
-    padding: 13px 24px;
-    border: none;
-    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .btn-3:hover {
     background-color: #434343;
 }
-
-/* CSS da Seção Cadastro */
-.Cadastro {
+.info-section-4 {
     display: flex;
     justify-content: center;
     align-items: center;
